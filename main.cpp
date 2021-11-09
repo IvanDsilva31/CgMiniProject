@@ -299,28 +299,28 @@ void road()
     glEnd();
     glPopMatrix();
 
-    glLineWidth(2);
-	glBegin(GL_LINES);
-	glColor3ub(255, 255, 255);
-	glVertex2f(0, 325);
-	glVertex2f(100, 325);
+    glLineWidth(4);
+    glBegin(GL_LINES);
+    glColor3ub(255, 255, 255);
+    glVertex2f(0, 325);
+    glVertex2f(100, 325);
 
-	glVertex2f(200, 325);
-	glVertex2f(400, 325);
+    glVertex2f(200, 325);
+    glVertex2f(400, 325);
 
-	glVertex2f(500, 325);
-	glVertex2f(700, 325);
+    glVertex2f(500, 325);
+    glVertex2f(700, 325);
 
-	glVertex2f(800, 325);
-	glVertex2f(1000, 325);
+    glVertex2f(800, 325);
+    glVertex2f(1000, 325);
 
-	glVertex2f(1100, 325);
-	glVertex2f(1300, 325);
+    glVertex2f(1100, 325);
+    glVertex2f(1300, 325);
 
-	glVertex2f(1400, 325);
-	glVertex2f(1600, 325);
-	glEnd();
-	glLineWidth(1);
+    glVertex2f(1400, 325);
+    glVertex2f(1600, 325);
+    glEnd();
+    glLineWidth(1);
 }
 
 void signal()
@@ -1345,9 +1345,10 @@ void WP_drawThoughtBubble()
     glRectf(720,500,1090,700);
     glColor3b(100,100,100);
     glBegin(GL_TRIANGLES);
-    glVertex2f( 500, 300 );
-    glVertex2f( 700, 100 );
-    glVertex2f( 200, 600 );
+    glColor3f(0.1, 0.2, 0.3);
+    glVertex2f(300.0,210.0);
+    glVertex2f(340.0,215.0);
+    glVertex2f(320.0,250.0);
     glEnd();
 
     // Text inside Thought Bubble
