@@ -3,7 +3,7 @@
 #include <graphics.h>
 #include "math.h"
 #define DEG2RAD 3.14159/180.0
-// Define the value of PI, upto 12 decimal places
+// Define the value of PI, up to 12 decimal places
 #define PI 3.141592653589
 
 void bus();
@@ -299,6 +299,7 @@ void road()
     glEnd();
     glPopMatrix();
 
+    // Road markings
     glLineWidth(4);
     glBegin(GL_LINES);
     glColor3ub(255, 255, 255);
