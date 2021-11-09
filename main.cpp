@@ -272,7 +272,8 @@ void display(void)
     car();
     car2();
     car3();
-
+    glColor3ub(5,56,4);
+    glRectf(0,0,1500,160);
     glFlush();
 
 }
@@ -1109,7 +1110,7 @@ void car3()
     glPushMatrix(); //making color for outer line
     glTranslated(b-4000,190.0,0.0);
     glScaled(20.0,20.0,0.0);
-    glColor3f(1.0,2.0,3.0);
+    glColor3ub(5,5,50);
     glBegin(GL_POLYGON);
     glVertex2f(2.5,2.5);
     glVertex2f(3.0,3.5);
@@ -1673,7 +1674,6 @@ void drawTree(GLfloat tx, GLfloat ty,
 
     glPopMatrix();
 }
-
 
 
 int main(int argc, char* argv[])
