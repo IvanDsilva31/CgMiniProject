@@ -13,6 +13,7 @@ void signal();
 void car();
 void car2();
 void car3();
+void bush();
 void mydisplay();
 void display();
 void frontsreen();
@@ -274,6 +275,7 @@ void display(void)
     car3();
     glColor3ub(5,56,4);
     glRectf(0,0,1500,160);
+    bush();
     glFlush();
 
 }
@@ -1619,7 +1621,6 @@ void print(char *string,
 void WP_drawThoughtBubble()
 {
 
-
     // Thought Bubble
     /**drawCircle(800, 580, 150, 200, 240, 1, 1, 80);
     drawCircle(840, 600, 150, 200, 240, 1, 1, 80);
@@ -1631,18 +1632,24 @@ void WP_drawThoughtBubble()
     drawCircle(880, 560, 150, 200, 240, 1, 1, 80);
     drawCircle(920, 560, 150, 200, 240, 1, 1, 80);
     drawCircle(960, 560, 150, 200, 240, 1, 1, 80);**/
+
+    // callout
+    glBegin(GL_POLYGON);
+    glColor3b(100,100,100);
+    glVertex2d( 1000, 700 );
+    glVertex2d( 1050, 600 );
+    glVertex2d( 1150, 600 );
+    glEnd();
+
+    // main block
     glColor3b(100,100,100);
     glRectf(720,500,1090,700);
     glColor3b(100,100,100);
-    glBegin(GL_TRIANGLES);
-    glVertex2f( 500, 300 );
-    glVertex2f( 700, 100 );
-    glVertex2f( 200, 600 );
-    glEnd();
+
 
     // Text inside Thought Bubble
     print("Hello there!! I'm your guide Riya",
-          0, 0, 0, wp_tb_text, 750, 600, .09, .09, 1);
+          0, 0, 0, wp_tb_text, 750, 650, .09, .09, 1);
 }
 void drawTree(GLfloat tx, GLfloat ty,
               GLfloat sx, GLfloat sy)
@@ -1675,6 +1682,37 @@ void drawTree(GLfloat tx, GLfloat ty,
     glPopMatrix();
 }
 
+void bush()
+{
+
+
+    drawCircle(50, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(120, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(150, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(210, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(250, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(310, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(350, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(410, 0, 100, 200, 15, 1, 1, 80);
+
+
+
+    drawCircle(900, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(850, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(1000, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(1070, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(1100, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(1170, 0, 100, 200, 15, 1, 1, 80);
+
+    drawCircle(1200, 40, 100, 200, 15, 1, 1, 80);
+    drawCircle(1270, 0, 100, 200, 15, 1, 1, 80);
+
+}
 
 int main(int argc, char* argv[])
 {
@@ -1682,7 +1720,7 @@ int main(int argc, char* argv[])
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(1346,728);
     glutInitWindowPosition(0,0);
-    glutCreateWindow("Traffic signal");
+    glutCreateWindow("Traffic simulation");
 
     /*call back functions*/
     glutDisplayFunc(mydisplay);
