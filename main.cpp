@@ -114,7 +114,7 @@ void helpscreen()
     glClearColor(0,0,0,0);/*background for cover page*/
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(0,1,0);
-    drawstring(550.0,700.0,0.0,"TIPs");
+    drawstring(550.0,700.0,0.0,"TIPS");
     glColor3f(1,0,0);
     drawstring(650.0,700.0,0.0,"AND");
     glColor3f(0,0,1);
