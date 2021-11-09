@@ -3,14 +3,16 @@
 #include <graphics.h>
 #include "math.h"
 #define DEG2RAD 3.14159/180.0
-// Define the value of PI, up to 12 decimal places
+// Define the value of PI, upto 12 decimal places
 #define PI 3.141592653589
+#pragma GCC diagnostic ignored "-Wwrite-strings"
 
 void bus();
 void road();
 void signal();
 void car();
 void car2();
+void car3();
 void mydisplay();
 void display();
 void frontsreen();
@@ -43,6 +45,9 @@ void print(char *string,
            GLfloat w, GLfloat h,
            GLfloat strokeSize);
 void WP_drawThoughtBubble();
+void drawTree(GLfloat tx, GLfloat ty,
+              GLfloat sx, GLfloat sy);
+
 GLint a=300,b=-300,flag=0,traffic_regulator=1,control_keyl,control_keyr;
 GLfloat red=0,blue=1,green=.3;
 
@@ -260,13 +265,16 @@ void display(void)
              );
     WP_drawThoughtBubble();
     road();
+    drawTree(304,400,1,1);
+    drawTree(104,400,1,1);
     bus();
     signal();
     car();
     car2();
-
+    car3();
 
     glFlush();
+
 }
 
 void road()
@@ -299,8 +307,7 @@ void road()
     glEnd();
     glPopMatrix();
 
-    // Road markings
-    glLineWidth(4);
+    glLineWidth(2);
     glBegin(GL_LINES);
     glColor3ub(255, 255, 255);
     glVertex2f(0, 325);
@@ -1097,6 +1104,287 @@ void car2()
     glPopMatrix();
 }
 
+void car3()
+{
+    glPushMatrix(); //making color for outer line
+    glTranslated(b-4000,190.0,0.0);
+    glScaled(20.0,20.0,0.0);
+    glColor3f(1.0,2.0,3.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(2.5,2.5);
+    glVertex2f(3.0,3.5);
+    glVertex2f(3.5,3.75);
+    glVertex2f(4.0,4.0);
+    glVertex2f(4.5,4.0);
+    glVertex2f(5.0,3.75);
+    glVertex2f(5.5,3.5);
+    glVertex2f(5.75,3.0);
+    glVertex2f(6.0,2.5);
+    glVertex2f(16.5,2.5);
+    glVertex2f(16.75,3.0);
+    glVertex2f(17.0,3.5);
+    glVertex2f(17.5,3.75);
+    glVertex2f(18.0,4.0);
+    glVertex2f(18.5,4.0);
+    glVertex2f(19.0,3.75);
+    glVertex2f(19.5,3.5);
+    glVertex2f(19.75,3.0);
+    glVertex2f(20.0,2.5);
+    glVertex2f(21.0,2.5);
+    glVertex2f(21.0,4.0);
+    glVertex2f(21.5,4.0);
+    glVertex2f(21.0,4.5);
+    glVertex2f(20.0,5.0);
+    glVertex2f(15.0,5.0);
+    glVertex2f(14.0,5.5);
+    glVertex2f(13.0,6.0);
+    glVertex2f(12.0,6.5);
+    glVertex2f(11.0,7.0);
+    glVertex2f(6.0,7.0);
+    glVertex2f(5.0,6.5);
+    glVertex2f(4.5,6.25);
+    glVertex2f(4.25,6.0);
+    glVertex2f(4.0,5.75);
+    glVertex2f(3.5,5.5);
+    glVertex2f(3.0,5.5);
+    glVertex2f(1.9,5.45);
+    glVertex2f(1.8,5.4);
+    glVertex2f(1.7,5.35);
+    glVertex2f(1.6,5.3);
+    glVertex2f(1.5,5.25);
+    glVertex2f(1.4,5.15);
+    glVertex2f(1.3,5.0);
+    glVertex2f(1.2,4.85);
+    glVertex2f(1.1,4.7);
+    glVertex2f(1.0,4.3);
+    glVertex2f(1.0,3.2);
+    glVertex2f(1.1,3.05);
+    glVertex2f(1.2,2.9);
+    glVertex2f(1.3,2.9);
+    glVertex2f(1.4,2.75);
+    glVertex2f(1.5,2.65);
+    glVertex2f(1.6,2.6);
+    glVertex2f(1.7,2.55);
+    glVertex2f(1.8,2.5);
+    glVertex2f(1.9,2.45);
+    glVertex2f(2.0,2.5);
+    glEnd();
+
+    glColor3f(1.0,1.0,1.0); //color for outer window
+    glBegin(GL_POLYGON);
+    glVertex2f(5.0,5.0);
+    glVertex2f(14.0,5.0);
+    glVertex2f(11.5,6.5);
+    glVertex2f(10.5,6.75);
+    glVertex2f(7.0,6.75);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //making outer line for car
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(2.5,2.5);
+    glVertex2f(3.0,3.5);
+    glVertex2f(3.5,3.75);
+    glVertex2f(4.0,4.0);
+    glVertex2f(4.5,4.0);
+    glVertex2f(5.0,3.75);
+    glVertex2f(5.5,3.5);
+    glVertex2f(5.75,3.0);
+    glVertex2f(6.0,2.5);
+    glVertex2f(16.5,2.5);
+    glVertex2f(16.75,3.0);
+    glVertex2f(17.0,3.5);
+    glVertex2f(17.5,3.75);
+    glVertex2f(18.0,4.0);
+    glVertex2f(18.5,4.0);
+    glVertex2f(19.0,3.75);
+    glVertex2f(19.5,3.5);
+    glVertex2f(19.75,3.0);
+    glVertex2f(20.0,2.5);
+    glVertex2f(21.0,2.5);
+    glVertex2f(21.0,4.0);
+    glVertex2f(21.5,4.0);
+    glVertex2f(21.0,4.5);
+    glVertex2f(20.0,5.0);
+    glVertex2f(15.0,5.0);
+    glVertex2f(14.0,5.5);
+    glVertex2f(13.0,6.0);
+    glVertex2f(12.0,6.5);
+    glVertex2f(11.0,7.0);
+    glVertex2f(6.0,7.0);
+    glVertex2f(5.0,6.5);
+    glVertex2f(4.5,6.25);
+    glVertex2f(4.25,6.0);
+    glVertex2f(4.0,5.75);
+    glVertex2f(3.5,5.5);
+    glVertex2f(3.0,5.5);
+    glVertex2f(1.9,5.45);
+    glVertex2f(1.8,5.4);
+    glVertex2f(1.7,5.35);
+    glVertex2f(1.6,5.3);
+    glVertex2f(1.5,5.25);
+    glVertex2f(1.4,5.15);
+    glVertex2f(1.3,5.0);
+    glVertex2f(1.2,4.85);
+    glVertex2f(1.1,4.7);
+    glVertex2f(1.0,4.3);
+    glVertex2f(1.0,3.2);
+    glVertex2f(1.1,3.05);
+    glVertex2f(1.2,2.9);
+    glVertex2f(1.3,2.9);
+    glVertex2f(1.4,2.75);
+    glVertex2f(1.5,2.65);
+    glVertex2f(1.6,2.6);
+    glVertex2f(1.7,2.55);
+    glVertex2f(1.8,2.5);
+    glVertex2f(1.9,2.45);
+    glVertex2f(2.0,2.5);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0);
+    glBegin(GL_LINE_LOOP); //outer line for design a car
+    glVertex2f(8.0,3.0);
+    glVertex2f(16.0,3.0);
+    glVertex2f(16.5,3.5);
+    glVertex2f(17.0,4.0);
+    glVertex2f(16.5,4.25);
+    glVertex2f(16.0,4.5);
+    glVertex2f(15.0,4.5);
+    glVertex2f(15.0,5.0);
+    glVertex2f(14.0,5.0);
+    glVertex2f(11.5,6.5);
+    glVertex2f(10.5,6.75);
+    glVertex2f(7.0,6.75);
+    glVertex2f(5.0,5.0);
+    glVertex2f(7.0,5.0);
+    glVertex2f(6.5,4.5);
+    glEnd();
+
+
+    glBegin(GL_LINES); //connecting outer line
+    glVertex2d(7.0,5.0);
+    glVertex2d(15.0,5.0);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //connecting outer line
+    glBegin(GL_LINES);
+    glVertex2d(15.0,4.0);
+    glVertex2d(17.0,4.0);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //connecting outer line
+    glBegin(GL_LINES);
+    glVertex2d(15.0,3.5);
+    glVertex2d(16.5,3.5);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //connecting outer line
+    glBegin(GL_LINES);
+    glVertex2d(15.0,5.0);
+    glVertex2d(14.0,3.0);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //connecting outer line
+    glBegin(GL_LINES);
+    glVertex2d(12.0,5.0);
+    glVertex2d(12.0,6.2);
+    glEnd();
+
+    glColor3f(0.0,0.0,0.0); //connecting outer line
+    glBegin(GL_LINES);
+    glVertex2d(7.0,5.0);
+    glVertex2d(7.0,6.7);
+    glEnd();
+
+    glBegin(GL_POLYGON); //drawing a back tyre
+    glVertex2f(3.0,2.5);
+    glVertex2f(3.0,2.6);
+    glVertex2f(3.15,3.1);
+    glVertex2f(3.2,3.2);
+    glVertex2f(3.3,3.35);
+    glVertex2f(3.4,3.4);
+    glVertex2f(3.5,3.45);
+    glVertex2f(3.6,3.55);
+    glVertex2f(3.7,3.6);
+    glVertex2f(3.8,3.63);
+    glVertex2f(4.0,3.65);
+    glVertex2f(4.2,3.7);
+    glVertex2f(4.4,3.7);
+    glVertex2f(4.6,3.65);
+    glVertex2f(4.8,3.55);
+    glVertex2f(5.0,3.45);
+    glVertex2f(5.1,3.4);
+    glVertex2f(5.2,3.25);
+    glVertex2f(5.3,3.2);
+    glVertex2f(5.4,3.0);
+    glVertex2f(5.5,2.5);
+
+    glVertex2f(5.45,2.15);
+    glVertex2f(5.4,1.9);
+    glVertex2f(5.35,1.8);
+    glVertex2f(5.2,1.6);
+    glVertex2f(5.0,1.5);
+    glVertex2f(4.9,1.4);
+    glVertex2f(4.7,1.3);
+    glVertex2f(4.6,1.27);
+    glVertex2f(4.4,1.25);
+    glVertex2f(4.0,1.25);
+    glVertex2f(3.9,1.3);
+    glVertex2f(3.75,1.35);
+    glVertex2f(3.6,1.4);
+    glVertex2f(3.45,1.55);
+    glVertex2f(3.3,1.7);
+    glVertex2f(3.2,1.8);
+    glVertex2f(3.1,2.2);
+    glEnd();
+
+
+    glBegin(GL_POLYGON); //drawing front tyre
+    glVertex2f(17.0,2.5);
+    glVertex2f(17.0,2.6);
+    glVertex2f(17.15,3.1);
+    glVertex2f(17.2,3.2);
+    glVertex2f(17.3,3.35);
+    glVertex2f(17.4,3.4);
+    glVertex2f(17.5,3.45);
+    glVertex2f(17.6,3.55);
+    glVertex2f(17.7,3.6);
+    glVertex2f(17.8,3.63);
+    glVertex2f(18.0,3.65);
+    glVertex2f(18.2,3.7);
+    glVertex2f(18.4,3.7);
+    glVertex2f(18.6,3.65);
+    glVertex2f(18.8,3.55);
+    glVertex2f(19.0,3.45);
+    glVertex2f(19.1,3.4);
+    glVertex2f(19.2,3.25);
+    glVertex2f(19.3,3.2);
+    glVertex2f(19.4,3.0);
+
+    glVertex2f(19.5,2.5);
+    glVertex2f(19.45,2.15);
+    glVertex2f(19.4,1.9);
+    glVertex2f(19.35,1.8);
+    glVertex2f(19.2,1.6);
+    glVertex2f(19.0,1.5);
+    glVertex2f(18.9,1.4);
+    glVertex2f(18.7,1.3);
+    glVertex2f(18.6,1.27);
+    glVertex2f(18.4,1.25);
+    glVertex2f(18.0,1.25);
+    glVertex2f(17.9,1.3);
+    glVertex2f(17.75,1.35);
+    glVertex2f(17.6,1.4);
+    glVertex2f(17.45,1.55);
+    glVertex2f(17.3,1.7);
+    glVertex2f(17.2,1.8);
+    glVertex2f(17.1,2.2);
+    glEnd();
+    glPopMatrix();
+}
+
+
+
+
 void myinit()
 {
 
@@ -1346,16 +1634,46 @@ void WP_drawThoughtBubble()
     glRectf(720,500,1090,700);
     glColor3b(100,100,100);
     glBegin(GL_TRIANGLES);
-    glColor3f(0.1, 0.2, 0.3);
-    glVertex2f(300.0,210.0);
-    glVertex2f(340.0,215.0);
-    glVertex2f(320.0,250.0);
+    glVertex2f( 500, 300 );
+    glVertex2f( 700, 100 );
+    glVertex2f( 200, 600 );
     glEnd();
 
     // Text inside Thought Bubble
-    print("Is this what I want to be doing",
+    print("Hello there!! I'm your guide Riya",
           0, 0, 0, wp_tb_text, 750, 600, .09, .09, 1);
 }
+void drawTree(GLfloat tx, GLfloat ty,
+              GLfloat sx, GLfloat sy)
+{
+    glPushMatrix();
+
+    glTranslatef(tx, ty, 0);
+    glScalef(sx, sy, 0);
+
+    // Bark
+    glBegin(GL_POLYGON);
+    glColor3ub(86, 46, 11);
+    glVertex2f(0, 0);
+    glVertex2f(40, 0);
+    glColor3ub(71, 36, 6);
+    glVertex2f(35, 200);
+    glVertex2f(5, 200);
+    glEnd();
+
+    // Tree
+    drawCircle(20, 200, 5, 80, 10, 1, 1, 80);
+
+    // Apples
+    drawCircle(27, 194, 255, 0, 0, 1, 1.2, 5);
+    drawCircle(-15, 170, 255, 0, 0, 1, 1.2, 5);
+    drawCircle(47, 155, 255, 0, 0, 1, 1.2, 5);
+    drawCircle(-2, 228, 255, 0, 0, 1, 1.2, 5);
+    drawCircle(72, 216, 255, 0, 0, 1, 1.2, 5);
+
+    glPopMatrix();
+}
+
 
 
 int main(int argc, char* argv[])

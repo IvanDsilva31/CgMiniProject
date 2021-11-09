@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1636382934 source:c:\users\ivand\desktop\grap\test5\main.cpp
+1636444745 source:c:\users\ivand\desktop\grap\test5\main.cpp
 	<stdio.h>
 	<GL/glut.h>
 	<graphics.h>
@@ -30,10 +30,4 @@
 	<windows.h>
 	<limits.h>
 	<sstream>
-
-1636434324 source:c:\users\ivand\documents\github\cgminiproject\main.cpp
-	<stdio.h>
-	<GL/glut.h>
-	<graphics.h>
-	"math.h"
 
