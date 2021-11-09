@@ -37,10 +37,20 @@ void drawWoman(GLfloat tx, GLfloat ty, GLfloat sx, GLfloat sy,
                GLfloat top_r, GLfloat top_g, GLfloat top_b,
                GLfloat ribbon_r, GLfloat ribbon_g, GLfloat ribbon_b,
                GLfloat skirt_r, GLfloat skirt_g, GLfloat skirt_b);
+void print(char *string,
+           GLfloat r, GLfloat g, GLfloat b, GLfloat a,
+           GLint x, GLint y,
+           GLfloat w, GLfloat h,
+           GLfloat strokeSize);
+void WP_drawThoughtBubble();
 GLint a=300,b=-300,flag=0,traffic_regulator=1,control_keyl,control_keyr;
 GLfloat red=0,blue=1,green=.3;
 
 GLfloat p=0,q=0,r=0;
+
+bool wp_tb_s1_done, wp_tb_s2_done, wp_tb_s3_done, wp_tb_big_done;
+GLfloat wp_tb_s1, wp_tb_s2, wp_tb_s3, wp_tb_big,
+        wp_tb_text;
 //-----------
 void *currentfont;
 
@@ -248,6 +258,7 @@ void display(void)
               37, 107, 202, // bottom
               229, 49, 49 // skirt
              );
+    WP_drawThoughtBubble();
     road();
     bus();
     signal();
@@ -287,6 +298,29 @@ void road()
     glVertex2f(4,40);
     glEnd();
     glPopMatrix();
+
+    glLineWidth(2);
+	glBegin(GL_LINES);
+	glColor3ub(255, 255, 255);
+	glVertex2f(0, 325);
+	glVertex2f(100, 325);
+
+	glVertex2f(200, 325);
+	glVertex2f(400, 325);
+
+	glVertex2f(500, 325);
+	glVertex2f(700, 325);
+
+	glVertex2f(800, 325);
+	glVertex2f(1000, 325);
+
+	glVertex2f(1100, 325);
+	glVertex2f(1300, 325);
+
+	glVertex2f(1400, 325);
+	glVertex2f(1600, 325);
+	glEnd();
+	glLineWidth(1);
 }
 
 void signal()
@@ -1269,7 +1303,57 @@ void drawWoman(GLfloat tx, GLfloat ty, GLfloat sx, GLfloat sy,
 
     glPopMatrix();
 }
+void print(char *string,
+           GLfloat r, GLfloat g, GLfloat b, GLfloat a,
+           GLint x, GLint y,
+           GLfloat w, GLfloat h,
+           GLfloat strokeSize)
+{
+    glPushMatrix();
 
+    glColor4f(r, g, b, a);
+    glTranslatef(x, y, 0);
+    glScalef(w, h, 0);
+
+    glPointSize(strokeSize);
+    glLineWidth(strokeSize);
+
+    while (*string)
+        glutStrokeCharacter(GLUT_STROKE_MONO_ROMAN, *string++);
+
+    glPopMatrix();
+
+    glLineWidth(1);
+    glPointSize(1);
+}
+void WP_drawThoughtBubble()
+{
+
+
+    // Thought Bubble
+    /**drawCircle(800, 580, 150, 200, 240, 1, 1, 80);
+    drawCircle(840, 600, 150, 200, 240, 1, 1, 80);
+    drawCircle(880, 600, 150, 200, 240, 1, 1, 80);
+    drawCircle(920, 600, 150, 200, 240, 1, 1, 80);
+    drawCircle(960, 600, 150, 200, 240, 1, 1, 80);
+    drawCircle(1000, 580, 150, 200, 240, 1, 1, 80);
+    drawCircle(840, 560, 150, 200, 240, 1, 1, 80);
+    drawCircle(880, 560, 150, 200, 240, 1, 1, 80);
+    drawCircle(920, 560, 150, 200, 240, 1, 1, 80);
+    drawCircle(960, 560, 150, 200, 240, 1, 1, 80);**/
+    glColor3b(100,100,100);
+    glRectf(720,500,1090,700);
+    glColor3b(100,100,100);
+    glBegin(GL_TRIANGLES);
+    glVertex2f( 500, 300 );
+    glVertex2f( 700, 100 );
+    glVertex2f( 200, 600 );
+    glEnd();
+
+    // Text inside Thought Bubble
+    print("Is this what I want to be doing",
+          0, 0, 0, wp_tb_text, 750, 600, .09, .09, 1);
+}
 
 
 int main(int argc, char* argv[])
