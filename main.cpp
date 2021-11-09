@@ -270,8 +270,8 @@ void display(void)
     bus();
     signal();
     car();
-   car2();
-   car3();
+    car2();
+    car3();
     glColor3ub(5,56,4);
     glRectf(0,0,1500,160);
     glFlush();
