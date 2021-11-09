@@ -78,63 +78,94 @@ void drawstring(float x,float y,float z,char *string)
 
 void frontscreen(void)
 {
-    setFont(GLUT_BITMAP_HELVETICA_18);
-    glClearColor(0.2,0.1,0.1,0.1);/*background for cover page*/
+    setFont(GLUT_BITMAP_TIMES_ROMAN_24);
+    glClearColor(0.1,0.1,0.1,0.1);/*background for cover page*/
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1,0,0);
-    drawstring(440.0,700.0,0.0,"FR. CONCEICAO RODRIGUES COLLEGE OF ENGINEERING ");
-    glColor3f(0.7,0,1);
-    drawstring(430,650,0.0,"DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING");
+
+    glColor3f(1,1,1);
+    drawstring(370.0,680.0,0.0,"FR. CONCEICAO RODRIGUES COLLEGE OF ENGINEERING ");
+    glColor3f(1,1,1);
+    drawstring(355,650,0.0,"DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING");
+
+    glColor3f(0.5,0.1,1);
+    drawstring(580,600,0.0,"A MINI PROJECT ON");
+
     glColor3f(1,0.5,0);
-    drawstring(600,600,0.0,"A MINI PROJECT ON");
-    glColor3f(1,0,0);
-    drawstring(350,550,0.0,"GRAPHICAL REPRESENTATION OF TRAFFIC SIGNALS AND TRAFFIC RULES");
+    drawstring(270,550,0.0,"GRAPHICAL REPRESENTATION OF TRAFFIC SIGNALS AND TRAFFIC RULES");
     glColor3f(1,0.5,0);
-    drawstring(200,400,0.0,"BY:");
+
+    setFont(GLUT_BITMAP_9_BY_15);
+
+    drawstring(510,400,0.0,"BY:");
     glColor3f(1,1,1);
-    drawstring(150,300,0.0,"Ivan");
+    drawstring(510,360,0.0,"Ivan Dsilva");
     glColor3f(1,1,1);
-    drawstring(150,200,0.0,"Malaika");
+    drawstring(510,320,0.0,"Malaika Monteiro");
     glColor3f(1,1,1);
-    drawstring(150,150,0.0,"Kris");
+    drawstring(510,280,0.0,"Kris Corriea");
     glColor3f(1,1,1);
-    drawstring(150,250,0.0,"Sarah");
+    drawstring(510,240,0.0,"Sarah Abraham");
     glColor3f(1,0.5,0);
-    drawstring(980,400,0.0,"GUIDES:");
+
+    drawstring(780,400,0.0,"ROLL NO:");
+
     glColor3f(1,1,1);
-    drawstring(930,300,0.0,"Dipali Ma'am");
+    drawstring(790,360,0.0,"9196");
+
+    glColor3f(1,1,1);
+    drawstring(790,320,0.0,"9211");
+
+    glColor3f(1,1,1);
+    drawstring(790,280,0.0,"9196");
+
+    glColor3f(1,1,1);
+    drawstring(790,240,0.0,"9196");
+
     glColor3f(1,0.1,1);
-    drawstring(560,75,0.0,"PRESS ENTER TO START");
+    drawstring(540,95,0.0,"***   PRESS ENTER TO START    ***");
+
+    glColor3f(1,0.1,1);
+
+
+
     glFlush();
+
+
+
+
+
+
 }
 
 void helpscreen()
 {
     setFont(GLUT_BITMAP_TIMES_ROMAN_24);
-    glClearColor(0,0,0,0);/*background for cover page*/
+    glClearColor(0.9,0.9,1,1);/*background for cover page*/
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(0,1,0);
-    drawstring(550.0,700.0,0.0,"TIPS");
-    glColor3f(1,0,0);
-    drawstring(650.0,700.0,0.0,"AND");
-    glColor3f(0,0,1);
-    drawstring(750.0,700.0,0.0,"TRICKS");
+
+    glColor3f(0.5,0.1,1);
+    drawstring(650.0,670.0,0.0,"CONTROLS");
+
+
+
+    setFont(GLUT_BITMAP_9_BY_15);
+
     glColor3f(0.5,0.1,0.2);
-    drawstring(350.0,640.0,0.0,"Stop the traffic (Red Light)                                  MOUSE LEFT CLICK");
+    drawstring(350.0,580.0,0.0,"Stop the traffic (Red Light) ........................ MOUSE LEFT CLICK");
     glColor3f(0.5,0.1,0.3);
-    drawstring(350.0,540.0,0.0,"Yellow Signal                                                        MOUSE RIGHT BUTTON (HOLD ON)");
+    drawstring(350.0,540.0,0.0,"Yellow Signal ....................................... MOUSE RIGHT BUTTON (HOLD ON)");
     glColor3f(0.5,0.1,0.4);
-    drawstring(350.0,440.0,0.0,"Green Signal                                                         MOUSE RIGHT BUTTON (RELEASE)");
+    drawstring(350.0,500.0,0.0,"Green Signal ........................................ MOUSE RIGHT BUTTON (RELEASE)");
     glColor3f(0.4,0.1,0.5);
-    drawstring(350.0,340.0,0.0,"Allow vehicles to MOVE left to right                  PRESS 'L'");
+    drawstring(350.0,460.0,0.0,"Allow vehicles to MOVE left to right ................ PRESS 'L'");
     glColor3f(0.5,0.1,0.6);
-    drawstring(350.0,240.0,0.0,"Allow vehicles to MOVE right to left                  PRESS 'R'");
+    drawstring(350.0,420.0,0.0,"Allow vehicles to MOVE right to left ................ PRESS 'R'");
     glColor3f(0.5,0.1,0.7);
-    drawstring(350.0,140.0,0.0,"Speed up the vehicles                                           PRESS 'S'");
+    drawstring(350.0,380.0,0.0,"Speed up the vehicles ............................... PRESS 'S'");
     glColor3f(0.5,0.1,0.8);
-    drawstring(350.0,90.0,0.0,"Help                                                                      PRESS 'H'");
+    drawstring(350.0,220.0,0.0,"Help ................................................ PRESS 'H'");
     glColor3f(0.5,0.1,0.9);
-    drawstring(350.0,40.0,0.0,"Escape                                                                  PRESS 'ENTER'");
+    drawstring(350.0,190.0,0.0,"Escape .............................................. PRESS 'ENTER'");
     glFlush();
 }
 
