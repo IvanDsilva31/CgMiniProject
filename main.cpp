@@ -52,6 +52,7 @@ GLfloat red=0,blue=1,green=.3;
 
 GLfloat p=0,q=0,r=0;
 
+
 bool wp_tb_s1_done, wp_tb_s2_done, wp_tb_s3_done, wp_tb_big_done;
 GLfloat wp_tb_s1, wp_tb_s2, wp_tb_s3, wp_tb_big,
         wp_tb_text;
@@ -293,14 +294,18 @@ void display(void)
               37, 107, 202, // bottom
               229, 49, 49 // skirt
              );
+
     WP_drawThoughtBubble();
+
     road();
     drawTree(304,400,1,1);
     drawTree(104,400,1,1);
+
     int temp = 0;
-    for(int j = 0; j < 100; j++){
-         bus(temp);
-         temp = temp + 2000;
+    for(int j = 0; j < 100; j++)
+    {
+        bus(temp);
+        temp = temp + 2000;
     }
     signal();
     int temp1 = 0;

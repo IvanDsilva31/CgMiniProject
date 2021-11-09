@@ -5,10 +5,10 @@
 	<graphics.h>
 	"math.h"
 
-1635169913 c:\program files\codeblocks\mingw\include\gl\glut.h
+1426329928 c:\program files\codeblocks\mingw\include\gl\glut.h
 	"freeglut_std.h"
 
-1635169911 c:\program files\codeblocks\mingw\include\gl\freeglut_std.h
+1426329928 c:\program files\codeblocks\mingw\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -26,14 +26,14 @@
 1526093414 c:\program files\codeblocks\mingw\include\gl\glu.h
 	<GL/gl.h>
 
-1632128627 c:\program files\codeblocks\mingw\include\graphics.h
+1412401578 c:\program files\codeblocks\mingw\include\graphics.h
 	<windows.h>
 	<limits.h>
 	<sstream>
 
 1412401578 D
 
-1636462532 source:c:\users\ivand\documents\github\cgminiproject\main.cpp
+1636470991 source:c:\users\ivand\documents\github\cgminiproject\main.cpp
 	<stdio.h>
 	<GL/glut.h>
 	<graphics.h>
