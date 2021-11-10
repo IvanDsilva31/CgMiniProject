@@ -288,6 +288,18 @@ void display(void)
         glutTimerFunc(50,update,0);
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(red,green,blue,0);/*back ground for sky*/
+  /**  glBegin(GL_POLYGON);
+    glColor3f(0.4,0.0,1.0);
+    glVertex2d(0,0);
+        glColor3f(0.0,0.0,0.0);
+    glVertex2d(0,1700);
+        glColor3f(0.0,0.0,0.0);
+    glVertex2d(1700,500);
+    glColor3f(0.4,1.0,0.0);
+    glVertex2d(1700,0);
+    glEnd(); **/
+
+
     drawWoman(1700, 200, -1, 1,
               20, 20, 20,
               229, 49, 49, // top
