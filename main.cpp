@@ -47,7 +47,7 @@ void WP_drawThoughtBubble();
 void drawTree(GLfloat tx, GLfloat ty,
               GLfloat sx, GLfloat sy);
 
-GLint a=300,b=-300,flag=0,traffic_regulator=1,control_keyl,control_keyr;
+GLint a=300,b=-300,flag=0,traffic_regulator=1,chat_text=1,control_keyl,control_keyr;
 GLfloat red=0,blue=1,green=.3;
 
 GLfloat p=0,q=0,r=0;
@@ -218,6 +218,9 @@ void myKeyboard( unsigned char key, int x, int y )
         flag=1;
         mydisplay();
         break;
+    case 'n':
+        chat_text++;
+        break;
     default:
         break;
     }
@@ -232,6 +235,7 @@ void myMouse(int button,int state,int x,int y)
         p=1;
         q=0;
         r=0;
+
     }
 
     if(button==GLUT_RIGHT_BUTTON && state==GLUT_DOWN)
@@ -288,16 +292,7 @@ void display(void)
         glutTimerFunc(50,update,0);
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(red,green,blue,0);/*back ground for sky*/
-  /**  glBegin(GL_POLYGON);
-    glColor3f(0.4,0.0,1.0);
-    glVertex2d(0,0);
-        glColor3f(0.0,0.0,0.0);
-    glVertex2d(0,1700);
-        glColor3f(0.0,0.0,0.0);
-    glVertex2d(1700,500);
-    glColor3f(0.4,1.0,0.0);
-    glVertex2d(1700,0);
-    glEnd(); **/
+
 
 
     drawWoman(1700, 200, -1, 1,
@@ -307,7 +302,6 @@ void display(void)
               229, 49, 49 // skirt
              );
 
-    WP_drawThoughtBubble();
 
     road();
     drawTree(304,400,1,1);
@@ -329,8 +323,78 @@ void display(void)
     glColor3ub(5,56,4);
     glRectf(0,0,1500,160);
     bush();
+    WP_drawThoughtBubble();
+
+
+
+
+
     glFlush();
 
+}
+
+void WP_drawThoughtBubble(){
+    glBegin(GL_POLYGON);
+    glColor3b(100,100,100);
+    glVertex2d( 1000, 700 );
+    glVertex2d( 1050, 600 );
+    glVertex2d( 1150, 600 );
+    glEnd();
+
+    // main block
+    glColor3b(100,100,100);
+    glRectf(720,600,1090,700);
+    glColor3b(100,100,100);
+
+    char text[200]="Hello Im your guide Riya.";
+    char textsub[200]="Please press N to continue with";
+    char textsub2[200]="safety instructions";
+    char text1[200]="Always follow traffic signals.";
+    char text1sub[200]="Red indicates stop.";
+    char text1sub2[200]="Yellow indicates wait.";
+    char text1sub3[200]="Green indicates go.";
+    char text2[200]="Always maintain lane discipline.";
+    char text2sub[200]="Even if you do change lanes,";
+    char text2sub2[200]="remember to give a signal.";
+    char text3[200]="Give way for emergency vehicles";
+    char text4[200]="Get your car insured.";
+    char text4sub[200]="Be insured and drive safe.";
+    char text5[200]="This is Riya signing off.Always";
+    char text5sub[200]="remember, Safety first!";
+    char text5sub2[200]="Press N to restart.";
+
+
+    if(chat_text==1){
+        print(text,0, 0, 0, wp_tb_text, 750, 680, .09, .09, .09);
+        print(textsub,0, 0, 0, wp_tb_text, 750, 655, .09, .09, 1);
+        print(textsub2,0, 0, 0, wp_tb_text, 750, 630, .09, .09, 1);
+    }
+    if(chat_text==2){
+        print(text1,0, 0, 0, wp_tb_text, 750, 680, .09, .09, 1);
+        print(text1sub,0, 0, 0, wp_tb_text, 750, 655, .09, .09, 1);
+        print(text1sub2,0, 0, 0, wp_tb_text, 750, 630, .09, .09, 1);
+        print(text1sub3,0, 0, 0, wp_tb_text, 750, 605, .09, .09, 1);
+    }
+    if(chat_text==3){
+        print(text2,0, 0, 0, wp_tb_text, 750, 680, .09, .09, 1);
+        print(text2sub,0, 0, 0, wp_tb_text, 750, 655, .09, .09, 1);
+        print(text2sub2,0, 0, 0, wp_tb_text, 750, 630, .09, .09, 1);
+    }
+    if(chat_text==4){
+        print(text3,0, 0, 0, wp_tb_text, 750, 650, .09, .09, 1);
+    }
+    if(chat_text==5){
+        print(text4,0, 0, 0, wp_tb_text, 750, 650, .09, .09, 1);
+        print(text4sub,0, 0, 0, wp_tb_text, 750, 635, .09, .09, 1);
+    }
+    if(chat_text==6){
+        print(text5,0, 0, 0, wp_tb_text, 750, 680, .09, .09, 1);
+        print(text5sub,0, 0, 0, wp_tb_text, 750, 655, .09, .09, 1);
+        print(text5sub2,0, 0, 0, wp_tb_text, 750, 630, .09, .09, 1);
+    }
+    if(chat_text==7){
+      chat_text=1;
+    }
 }
 
 void road()
@@ -1114,39 +1178,7 @@ void print(char *string,
     glLineWidth(1);
     glPointSize(1);
 }
-void WP_drawThoughtBubble()
-{
 
-    // Thought Bubble
-    /**drawCircle(800, 580, 150, 200, 240, 1, 1, 80);
-    drawCircle(840, 600, 150, 200, 240, 1, 1, 80);
-    drawCircle(880, 600, 150, 200, 240, 1, 1, 80);
-    drawCircle(920, 600, 150, 200, 240, 1, 1, 80);
-    drawCircle(960, 600, 150, 200, 240, 1, 1, 80);
-    drawCircle(1000, 580, 150, 200, 240, 1, 1, 80);
-    drawCircle(840, 560, 150, 200, 240, 1, 1, 80);
-    drawCircle(880, 560, 150, 200, 240, 1, 1, 80);
-    drawCircle(920, 560, 150, 200, 240, 1, 1, 80);
-    drawCircle(960, 560, 150, 200, 240, 1, 1, 80);**/
-
-    // callout
-    glBegin(GL_POLYGON);
-    glColor3b(100,100,100);
-    glVertex2d( 1000, 700 );
-    glVertex2d( 1050, 600 );
-    glVertex2d( 1150, 600 );
-    glEnd();
-
-    // main block
-    glColor3b(100,100,100);
-    glRectf(720,500,1090,700);
-    glColor3b(100,100,100);
-
-
-    // Text inside Thought Bubble
-    print("Hello there!! I'm your guide Riya",
-          0, 0, 0, wp_tb_text, 750, 650, .09, .09, 1);
-}
 void drawTree(GLfloat tx, GLfloat ty,
               GLfloat sx, GLfloat sy)
 {
@@ -1216,7 +1248,7 @@ int main(int argc, char* argv[])
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(1346,728);
     glutInitWindowPosition(0,0);
-    glutCreateWindow("Traffic simulation");
+    glutCreateWindow("Automobile safety");
 
     /*call back functions*/
     glutDisplayFunc(mydisplay);
