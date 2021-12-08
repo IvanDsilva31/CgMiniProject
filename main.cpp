@@ -157,12 +157,6 @@ void helpscreen()
     glColor3f(0.5,0.1,0.4);
     drawstring(350.0,500.0,0.0,"Green Signal ........................................ MOUSE RIGHT BUTTON (RELEASE)");
     glColor3f(0.4,0.1,0.5);
-    drawstring(350.0,460.0,0.0,"Allow vehicles to MOVE left to right ................ PRESS 'L'");
-    glColor3f(0.5,0.1,0.6);
-    drawstring(350.0,420.0,0.0,"Allow vehicles to MOVE right to left ................ PRESS 'R'");
-    glColor3f(0.5,0.1,0.7);
-    drawstring(350.0,380.0,0.0,"Speed up the vehicles ............................... PRESS 'S'");
-    glColor3f(0.5,0.1,0.8);
     drawstring(350.0,220.0,0.0,"Help ................................................ PRESS 'H'");
     glColor3f(0.5,0.1,0.9);
     drawstring(350.0,190.0,0.0,"Escape .............................................. PRESS 'ENTER'");
@@ -197,22 +191,6 @@ void myKeyboard( unsigned char key, int x, int y )
             flag=1;
             mydisplay();
         }
-
-        break;
-    case 'l':
-        control_keyl=key;
-        p=0;
-        q=0;
-        r=1;
-        break;
-    case 'r':
-        control_keyr=key;
-        p=0;
-        q=0;
-        r=1;
-        break;
-    case 's':
-        mydisplay();
         break;
     case 'h':
         flag=1;
